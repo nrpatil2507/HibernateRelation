@@ -26,6 +26,7 @@ public class Student {
 		return "Student [rollno=" + rollno + ", name=" + name + ", marks=" + marks + ", course=" + course + ", laptop="
 				+ laptop + ", exam=" + exam + "]";
 	}
+	
 	@OneToMany(mappedBy="student")
 	private List<Laptop> laptop=new ArrayList<>();
 	
