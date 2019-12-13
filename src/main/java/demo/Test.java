@@ -42,10 +42,15 @@ public class Test {
 	
 	Session sess=sf.openSession();
 	Transaction tx=sess.beginTransaction();
+	
+	
 	sess.save(e);
 	sess.save(c);
 	sess.save(l);
 	sess.save(s);
+
+	Student s1=(Student)sess.get(Student.class,1);
+	System.out.println(s1);
 	tx.commit();
 	
 	}

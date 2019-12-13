@@ -2,7 +2,8 @@ package demo;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -20,10 +21,15 @@ public class Student {
 	@OneToOne
 	private Course course;
 	
+	@Override
+	public String toString() {
+		return "Student [rollno=" + rollno + ", name=" + name + ", marks=" + marks + ", course=" + course + ", laptop="
+				+ laptop + ", exam=" + exam + "]";
+	}
 	@OneToMany(mappedBy="student")
 	private List<Laptop> laptop=new ArrayList<>();
 	
-	@ManyToMany(mappedBy="student")
+	@ManyToMany(mappedBy="student",fetch=FetchType.EAGER)
 	private List<Exam> exam=new ArrayList<>();
 	
 	
